@@ -10,17 +10,16 @@ Examples
 */
 
 function toCamelCase(str){
-  const words = str
-    .split(/[-_]/)
+  return str
+    .split(/[\-_]/)
     .map((word, index) => {
       if (index === 0) {
         return word;
       }
       
       return word[0].toUpperCase() + word.slice(1);
-    });
-
-  return words.join('');
+    })
+    .join('');
 }
 
 console.log(toCamelCase('the_stealth_warrior'));

@@ -24,7 +24,22 @@ function solution(...args){
   return false;
 }
 
+function solutionWithSet(...args){
+  const set = new Set(args);
+
+  return set.size !== args.length;
+}
+
 console.log(solution(1,2,3));
-console.log(solution(1,2,3,6,5,6));
-console.log(solution('a','b','c','a'));
-console.log(solution(1,2,3,'a','b'));
+console.log(solution(1, 2, 3, 6, 5, 6));
+console.time('for');
+console.log(solution('a', 'b', 'c', 'a'));
+console.timeEnd('for');
+console.log(solution(1, 2, 3, 'a', 'b'));
+
+console.log(solutionWithSet(1,2,3));
+console.log(solutionWithSet(1, 2, 3, 6, 5, 6));
+console.time('set');
+console.log(solutionWithSet('a', 'b', 'c', 'a'));
+console.timeEnd('set');
+console.log(solutionWithSet(1,2,3,'a','b'));

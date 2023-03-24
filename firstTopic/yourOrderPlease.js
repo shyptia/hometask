@@ -20,7 +20,25 @@ function order(words){
     .join(' ');
 }
 
-console.time('Test');
+function orderWithRegexp(words){
+  return words
+    .split(' ')
+    .sort((firstWord, secondWord) => {
+      const pattern = /[\d]+/;
+
+      const numOfFirstWord = firstWord.match(pattern);
+      const numOfSecondWord = secondWord.match(pattern);
+
+      return numOfFirstWord - numOfSecondWord;
+    })
+    .join(' ');
+}
+
+console.time('find');
 console.log(order('is2 Thi1s T4est 3a'));
-console.timeEnd('Test')
+console.timeEnd('find')
 console.log(order('4of Fo1r pe6ople g3ood th5e the2'));
+
+console.time('regexp');
+console.log(orderWithRegexp('is2 Thi1s T4est 3a'));
+console.timeEnd('regexp')

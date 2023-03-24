@@ -19,9 +19,9 @@ Attention: If the number has leading zeros the amount of digits should be consid
 */
 
 function incrementString (strng) {
-  const pattern = /[\d]*$/;
-  const match = strng.match(pattern);
-  const numString = match[0];
+  const pattern = /[\d]+$/;
+  const match = strng.match(pattern) || '';
+  const numString = match[0] || '';
   const number = String(+numString + 1).padStart(numString.length, '0');
 
   return strng.slice(0, match.index) + number;
