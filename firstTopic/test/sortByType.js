@@ -26,6 +26,8 @@ function sortByType(arr) {
   }, {});
 }
 
+console.log(sortByType(arr));
+
 /*
 Очікуваний результат
 {

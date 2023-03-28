@@ -1,3 +1,5 @@
+debugger
+
 const obj = {
   a: 1,
   x: null,
@@ -48,3 +50,5 @@ function deepClone(obj) {
 
   return clonedItem;
 }
+
+console.log(deepClone(obj));

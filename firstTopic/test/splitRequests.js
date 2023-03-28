@@ -13,7 +13,6 @@ function getRandom (list) {
 
 function splitRequest(request, ads) {
   const sum = ads.reduce((acc, item) => acc + item.price, 0);
-  const percent = (ads[0].price / sum) * 100;
 
   ads.forEach((item, index) => {
     const prevIndex = index - 1;
@@ -23,8 +22,6 @@ function splitRequest(request, ads) {
     item.end = (item.from + item.price / sum);
   })
   
-  console.log(percent);
-
   for (let i = 1; i <= request; i++){
     const randomValue = Math.random();
     const foundAd = ads.find(ad => randomValue >= ad.from && randomValue <= ad.end);
