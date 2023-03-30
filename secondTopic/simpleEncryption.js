@@ -19,9 +19,17 @@ function encrypt(text, n) {
   let stringToEncrypt = text;
   
   while (count > 0) {
-    const parts = stringToEncrypt.split('');
-    const odd = parts.filter((_, index) => index % 2 === 1).join('');
-    const even = parts.filter((_, index) => index % 2 === 0).join('');
+    const letters = stringToEncrypt.split('');
+    let even = '';
+    let odd = '';
+
+    for (let i = 0; i < letters.length; i++) {
+      if (i % 2 === 0) {
+        even += letters[i];
+      } else {
+        odd += letters[i];
+      }
+    }
     
     stringToEncrypt = odd + even;
     count--;

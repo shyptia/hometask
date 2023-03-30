@@ -10,11 +10,15 @@ the returned string should only contain lowercase letters
 */
 
 function kebabize(str) {
-  let string = str.replace(/\d/g, '');
-  string = string.charAt(0).toLowerCase() + string.slice(1);
+  const string = str.charAt(0).toLowerCase() + str.slice(1);
 
-  string = string.replace(/[A-Z]/g, (match) => "-" + match.toLowerCase());
-  return string;
+  return string.replace(/[A-Z0-9]/g, (match) => {
+    if (!isNaN(match)) {
+      return '';
+    }
+
+    return "-" + match.toLowerCase();
+  });
 }
 
 console.log(kebabize('myCamelCasedString'));
